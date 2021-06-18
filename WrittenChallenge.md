@@ -52,5 +52,5 @@ NFT的一個常見問題是：我確保了檔案本身，但沒有確保檔案�
 
 * If you were given the resource and freedom to start and maintain an open source project, what problem do you choose to solve, and how would you setup the community guideline and collabration process?
 
-我想開源Tiat2。我一直有一個想法，想要解決跨平台之間File Explorer體驗不一致的問題，以及太多雜七雜八檔案相關工具（轉檔等等）的問題，Tiat算是一個開始（先做影音檔案），框架穩定之後可能延伸到文件檔案以及其他特殊檔案，還可以架構一個不依賴各大龍頭的去中心化檔案網路（可能是公鏈或私鏈）。
-在開發Tiat2的時候，我也參考了一些半開源的Project，把一些功能插件化、讓社群可以一起協作部分的功能（file parser, converter, archiver）。
+我想開源現在正在做的Tiat2。我一直有一個想法，想要解決跨平台之間File Explorer體驗不一致的問題，以及太多雜七雜八檔案相關工具（轉檔等等）的問題，Tiat算是一個開始（先做影音檔案），框架穩定之後可能延伸到文件檔案以及其他特殊檔案，還可以架構一個不依賴各大龍頭的去中心化檔案網路（可能是公鏈或私鏈）。
+在開發Tiat2的時候，我也參考了一些半開源的Project，把一些功能插件化、讓社群可以一起協作部分常用的功能（file parser, converter, archiver）。
