@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a25c3760-059a-4761-b446-8a9e2f86f364" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/Component/ErrorSnackBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/Component/LoadingBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/Component/SuccessSnackBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/service/articleService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/store/viewStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/article/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/article/new.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WrittenChallenge.md" beforeDir="false" afterPath="$PROJECT_DIR$/WrittenChallenge.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +50,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="D:\Works\matters\client\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -100,6 +95,7 @@
       <workItem from="1624027896798" duration="2399000" />
       <workItem from="1624030338876" duration="181000" />
       <workItem from="1624085670465" duration="3940000" />
+      <workItem from="1624097967806" duration="1248000" />
     </task>
     <task id="LOCAL-00001" summary=":memo: written challenge">
       <created>1624012007217</created>
@@ -148,6 +144,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
