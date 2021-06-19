@@ -8,7 +8,9 @@ export interface indexProps {
 }
 
 let getStyles = computedFn(() => (stylesheet({
-    wrap: {},
+    wrap: {
+
+    },
 })))
 
 let index: FC<indexProps> = (props) => {
