@@ -2,31 +2,25 @@
   "name": "client",
   "version": "0.1.0",
   "description": "codebase of client",
-  "engines": {
-    "node": ">=12"
-  },
   "scripts": {
-    "start": "parcel -p 8000 watch src/index.html --open"
+    "dev": "next dev -p 3716",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "@apollo/react-hooks": "^4.0.0",
-    "apollo-boost": "^0.4.9",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "graphql": "^15.3.0",
-    "graphql-tag": "^2.11.0",
-    "koa": "^2.13.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "typescript": "^3.9.7"
+    "@material-ui/core": "^4.11.4",
+    "csx": "^10.0.2",
+    "mobx": "^6.3.2",
+    "mobx-react": "^7.2.0",
+    "mobx-utils": "^6.0.4",
+    "next": "^11.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typestyle": "^2.1.0"
   },
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@types/react": "^16.9.44",
-    "@types/react-dom": "^16.9.8",
-    "parcel": "^1.12.4",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.5",
-    "tslint": "^6.1.3"
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "typescript": "^3.9.7"
   }
 }
