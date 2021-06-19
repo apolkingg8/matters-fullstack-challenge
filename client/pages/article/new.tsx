@@ -4,6 +4,8 @@ import {computedFn} from "mobx-utils";
 import {stylesheet} from "typestyle";
 import styleStore from "../../store/styleStore";
 import {Button, TextField} from "@material-ui/core";
+import articleService from "../../service/articleService";
+import viewStore from "../../store/viewStore";
 
 export interface NewArticlePageProps {
 
@@ -60,11 +62,21 @@ let NewArticlePage: FC<NewArticlePageProps> = (props) => {
             <div className={styles.buttonWrap}>
                 <Button
                     fullWidth={true}
-                    onClick={()=> {
+                    onClick={async ()=> {
 
+                        viewStore.isLoading = true
+
+                        try {
+                            await articleService.save(title, content)
+                            viewStore.success = `Save article success`
+                        } catch (err) {
+                            viewStore.error = `Save article fail`
+                        }
+
+                        viewStore.isLoading = false
                     }}
                 >
-                    Submit
+                    Save
                 </Button>
             </div>
         </div>

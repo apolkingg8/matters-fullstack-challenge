@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a25c3760-059a-4761-b446-8a9e2f86f364" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/pages/article/[articleId].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/article/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/article/new.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/Component/ErrorSnackBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/Component/LoadingBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/Component/SuccessSnackBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/service/articleService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/store/viewStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/styleStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/styleStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/themeStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/themeStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/article/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/article/new.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
+        <option value="TypeScript File" />
         <option value="ReactFunctionComponent" />
       </list>
     </option>
@@ -97,7 +99,7 @@
       <workItem from="1624010386987" duration="1046000" />
       <workItem from="1624027896798" duration="2399000" />
       <workItem from="1624030338876" duration="181000" />
-      <workItem from="1624085670465" duration="2913000" />
+      <workItem from="1624085670465" duration="3940000" />
     </task>
     <task id="LOCAL-00001" summary=":memo: written challenge">
       <created>1624012007217</created>
@@ -134,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624087583789</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=":construction: article pages">
+      <created>1624088843163</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624088843163</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +159,8 @@
     <MESSAGE value=":memo: written challenge" />
     <MESSAGE value=":tada: Amingo! coding challenge" />
     <MESSAGE value=":construction: init next.js &amp; material-ui" />
-    <option name="LAST_COMMIT_MESSAGE" value=":construction: init next.js &amp; material-ui" />
+    <MESSAGE value=":construction: article pages" />
+    <option name="LAST_COMMIT_MESSAGE" value=":construction: article pages" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
