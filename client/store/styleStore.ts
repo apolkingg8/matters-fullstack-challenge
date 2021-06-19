@@ -39,7 +39,7 @@ class StyleStore {
 
     constructor() {
         makeAutoObservable(this)
-        cssRule(`html, body, #root`, {
+        cssRule(`html, body, #root, #__next`, {
             width: percent(100),
             height: percent(100),
             background: "transparent",
