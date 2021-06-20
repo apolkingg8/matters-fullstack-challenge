@@ -47,6 +47,9 @@ let ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <div className={styles.wrap}>
+            <a href={`/article/new`}>
+                Add article
+            </a>
             {articles.map((article)=> {
                 return (
                     <a

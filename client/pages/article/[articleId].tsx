@@ -46,14 +46,17 @@ let ArticlePage: FC < ArticlePageProps > = (props) => {
     }
 
     return (
-        <section className={styles.wrap}>
+        <div className={styles.wrap}>
+            <a href={`/article`}>
+                Article list
+            </a>
             <div className={styles.title}>
                 {article.title}
             </div>
             <div className={styles.content}>
                 {article.content}
             </div>
-        </section>
+        </div>
     )
 }
 
