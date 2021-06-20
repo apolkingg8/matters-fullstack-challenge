@@ -2,6 +2,9 @@ import React, {FC} from "react";
 import {observer} from "mobx-react";
 import {computedFn} from "mobx-utils";
 import {stylesheet} from "typestyle";
+import viewStore from "../store/viewStore";
+import {Alert} from "@material-ui/lab";
+import {Snackbar} from "@material-ui/core";
 
 export interface ErrorSnackBarProps {
 
@@ -15,9 +18,15 @@ let ErrorSnackBar: FC<ErrorSnackBarProps> = (props) => {
     let styles = getStyles()
 
     return (
-        <div className={styles.wrap}>
-
-        </div>
+        <Snackbar
+            open={Boolean(viewStore.error)}
+            autoHideDuration={3000}
+            onClose={()=> {
+                viewStore.error = null
+            }}
+        >
+            <Alert severity={"error"}>{viewStore.error}</Alert>
+        </Snackbar>
     )
 }
 
