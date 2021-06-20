@@ -20,6 +20,13 @@ export default class ArticleResolver {
         }
     }
 
+    @Query(()=> (Number))
+    async articlesCount() {
+        let allArticles = await dbService.getAllArticles()
+
+        return allArticles.length
+    }
+
     @Mutation(()=> (Article))
     async addArticle(
         @Arg("article") article: ArticleInput
