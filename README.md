@@ -1,11 +1,24 @@
 # Full-stack Engineer Challenge
 
-The challenge consists of two parts:
-* [Code Challenge](./CodeChallenge.md)
-* [Written Challenge](./WrittenChallenge.md)
+## Development
 
-Please clone this repo and submit your work in a seperate fork.
+### Env
+* `Node.js` v12+
+* `Yarn` 1.x
 
-The challenges are designed to demonstrate the applicant's way of thinking and personal passions. All challenges are open ended, so please feel free to frame the questions as you see fit, or answer them in any way that you think interesting and revealing.
+### Server
+```
+// start dev server :3718/graphql
+yarn dev
+```
+* GQL endpoint: http://localhost:3718/graphql
 
-Enjoy and good luck!
+### Client
+```
+// start dev server :3716
+yarn dev
+```
+* Add article: http://localhost:3716/article/new
+* Article list: http://localhost:3716/article/p/1 (Pagination)
+* Single article page: http://localhost:3716/article/{articleId} (By click article card)
+
