@@ -1,8 +1,9 @@
 import {Field, ObjectType} from "type-graphql";
 import {v4} from "uuid";
+import IArticle from "../../common/IArticle";
 
 @ObjectType()
-export default class Article {
+export default class Article implements IArticle {
 
     @Field()
     id: string = v4()

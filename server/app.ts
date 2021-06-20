@@ -4,11 +4,15 @@ import {buildSchema} from "type-graphql";
 import ArticleResolver from "./Resolver/ArticleResolver";
 import {ApolloServer} from "apollo-server-express";
 import dbService from "./service/dbService";
+import * as cors from "cors"
 
 let app = express()
 let port =  process.env.PORT || 3718
 
 let startServer = async ()=> {
+
+    app.use(cors())
+
     let schema = await buildSchema({
         resolvers: [ArticleResolver],
     })

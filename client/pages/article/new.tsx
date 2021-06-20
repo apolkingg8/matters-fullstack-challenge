@@ -67,7 +67,7 @@ let NewArticlePage: FC<NewArticlePageProps> = (props) => {
                         viewStore.isLoading = true
 
                         try {
-                            await articleService.save(title, content)
+                            await articleService.add(title, content)
                             viewStore.success = `Save article success`
                         } catch (err) {
                             viewStore.error = `Save article fail`
