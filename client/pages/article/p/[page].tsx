@@ -33,6 +33,7 @@ let getStyles = computedFn(() => (stylesheet({
     },
     pageRow: {
         ...styleStore.centerRow,
+        marginTop: 16,
     },
     page: {
         ...styleStore.centerRow,
