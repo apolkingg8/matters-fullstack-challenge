@@ -31,6 +31,15 @@ let getStyles = computedFn(() => (stylesheet({
     content: {
         ...themeStore.theme.typography.body1,
     },
+    pageRow: {
+        ...styleStore.centerRow,
+    },
+    page: {
+        ...styleStore.centerRow,
+        width: 48,
+        height: 48,
+        borderRadius: 8,
+    },
 })))
 
 let ArticleListPage: FC<ArticleListPageProps> = (props) => {
@@ -69,10 +78,13 @@ let ArticleListPage: FC<ArticleListPageProps> = (props) => {
 
     return (
         <div className={styles.wrap}>
-            {currentPage}
+            <a href={`/article/new`}>
+                Add article
+            </a>
             {articles.map((article)=> {
                 return (
                     <a
+                        key={article.id}
                         className={styles.card}
                         href={`/article/${article.id}`}
                     >
@@ -85,16 +97,25 @@ let ArticleListPage: FC<ArticleListPageProps> = (props) => {
                     </a>
                 )
             })}
-            {pages.map((val, i)=> {
-                return (
-                    <a
-                        key={i}
-                        href={`/article/p/${i + 1}`}
-                    >
-                        {i + 1}
-                    </a>
-                )
-            })}
+            <div className={styles.pageRow}>
+                {pages.map((val, i)=> {
+                    let isActive = i === (currentPage - 1)
+                    return (
+                        <a
+                            className={styles.page}
+                            key={i}
+                            href={`/article/p/${i + 1}`}
+                            style={{
+                                background: isActive
+                                    ? themeStore.theme.palette.background.paper
+                                    : "transparent",
+                            }}
+                        >
+                            {i + 1}
+                        </a>
+                    )
+                })}
+            </div>
         </div>
     )
 }
