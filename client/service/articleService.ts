@@ -35,10 +35,6 @@ class ArticleService {
         return json['data']['addArticle']
     }
 
-    delete = async (id: string)=> {
-
-    }
-
     getAll = async (): Promise<IArticle[]> => {
         let query = `query get_all_articles {
             articles {

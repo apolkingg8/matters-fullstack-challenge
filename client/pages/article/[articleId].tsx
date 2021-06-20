@@ -7,6 +7,7 @@ import IArticle from "../../../common/IArticle";
 import styleStore from "../../store/styleStore";
 import articleService from "../../service/articleService";
 import themeStore from "../../store/themeStore";
+import viewStore from "../../store/viewStore";
 
 export interface ArticlePageProps {
 
@@ -38,7 +39,11 @@ let ArticlePage: FC < ArticlePageProps > = (props) => {
             setArticle(article)
         }
 
-        articleId && getArticle()
+        try {
+            articleId && getArticle()
+        } catch (err) {
+            viewStore.error = "Get article fail"
+        }
     }, [articleId])
 
     if(!article) {

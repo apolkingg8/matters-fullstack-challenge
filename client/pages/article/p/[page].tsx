@@ -7,6 +7,7 @@ import {useRouter} from "next/router";
 import styleStore from "../../../store/styleStore";
 import IArticle from "../../../../common/IArticle";
 import themeStore from "../../../store/themeStore";
+import viewStore from "../../../store/viewStore";
 
 export interface ArticleListPageProps {
 
@@ -59,11 +60,15 @@ let ArticleListPage: FC<ArticleListPageProps> = (props) => {
             setArticles(articles)
         }
 
-        currentPage && getArticles()
+        try {
+            currentPage && getArticles()
+        } catch (err) {
+            viewStore.error = `Get articles fail`
+        }
     }, [currentPage])
 
     useEffect(()=> {
-        let getArticles = async ()=> {
+        let doPaging = async ()=> {
             let total = await articleService.getTotalCount()
             let pages = []
 
@@ -74,7 +79,11 @@ let ArticleListPage: FC<ArticleListPageProps> = (props) => {
             setPages(pages)
         }
 
-        getArticles()
+        try {
+            doPaging()
+        } catch (err) {
+            viewStore.error = `Do paging fail`
+        }
     }, [])
 
     return (
