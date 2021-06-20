@@ -49,14 +49,17 @@ let ArticlesPage: FC<ArticlesPageProps> = (props) => {
         <div className={styles.wrap}>
             {articles.map((article)=> {
                 return (
-                    <section className={styles.card}>
+                    <a
+                        className={styles.card}
+                        href={`/article/${article.id}`}
+                    >
                         <div className={styles.title}>
                             {article.title}
                         </div>
                         <div className={styles.content}>
                             {article.content}
                         </div>
-                    </section>
+                    </a>
                 )
             })}
         </div>

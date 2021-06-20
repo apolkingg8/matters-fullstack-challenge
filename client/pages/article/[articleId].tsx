@@ -6,6 +6,7 @@ import {useRouter} from "next/router";
 import IArticle from "../../../common/IArticle";
 import styleStore from "../../store/styleStore";
 import articleService from "../../service/articleService";
+import themeStore from "../../store/themeStore";
 
 export interface ArticlePageProps {
 
@@ -17,10 +18,11 @@ let getStyles = computedFn(() => (stylesheet({
         ...styleStore.centerCol,
     },
     title: {
-
+        ...themeStore.theme.typography.h4,
+        marginBottom: 8,
     },
     content: {
-
+        ...themeStore.theme.typography.body1,
     },
 })))
 
@@ -44,9 +46,14 @@ let ArticlePage: FC < ArticlePageProps > = (props) => {
     }
 
     return (
-        <div className={styles.wrap}>
-            {article.title} {article.content}
-        </div>
+        <section className={styles.wrap}>
+            <div className={styles.title}>
+                {article.title}
+            </div>
+            <div className={styles.content}>
+                {article.content}
+            </div>
+        </section>
     )
 }
 

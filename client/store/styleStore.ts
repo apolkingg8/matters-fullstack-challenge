@@ -46,6 +46,10 @@ class StyleStore {
             borderRadius: 8,
             overflow: "hidden",
         })
+        cssRule(`a`, {
+            color: "inherit",
+            textDecoration: "none",
+        })
         cssRule(`*`, {
             userSelect: "none",
             outline: "none",
