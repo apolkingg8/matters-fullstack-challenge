@@ -3,17 +3,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node app.ts"
+  },
   "dependencies": {
+    "@types/uuid": "^8.3.0",
     "apollo-server-express": "^2.25.1",
+    "class-validator": "^0.13.1",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
+    "ipfs": "^0.55.4",
+    "orbit-db": "^0.26.1",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.0.0",
-    "type-graphql": "^1.1.1"
+    "type-graphql": "^1.1.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.12",
     "@types/node": "^15.12.4",
+    "@types/orbit-db": "https://github.com/orbitdb/orbit-db-types.git",
     "typescript": "^4.3.4"
   }
 }

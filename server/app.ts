@@ -3,6 +3,7 @@ import * as express from "express"
 import {buildSchema} from "type-graphql";
 import ArticleResolver from "./Resolver/ArticleResolver";
 import {ApolloServer} from "apollo-server-express";
+import dbService from "./service/dbService";
 
 let app = express()
 let port =  process.env.PORT || 3718
@@ -28,6 +29,8 @@ let startServer = async ()=> {
             port: port
         }, resolve)
     })
+
+    await dbService.init()
 
     console.log(`App on: http://localhost:${port}${apolloServer.graphqlPath}`)
 }
