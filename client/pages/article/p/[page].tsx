@@ -2,12 +2,13 @@ import React, {FC, useEffect, useState} from "react";
 import {observer} from "mobx-react";
 import {computedFn} from "mobx-utils";
 import {stylesheet} from "typestyle";
-import articleService from "../../service/articleService";
-import IArticle from "../../../common/IArticle";
-import themeStore from "../../store/themeStore";
-import styleStore from "../../store/styleStore";
+import articleService from "../../../service/articleService";
+import {useRouter} from "next/router";
+import styleStore from "../../../store/styleStore";
+import IArticle from "../../../../common/IArticle";
+import themeStore from "../../../store/themeStore";
 
-export interface ArticlesPageProps {
+export interface ArticleListPageProps {
 
 }
 
@@ -32,16 +33,35 @@ let getStyles = computedFn(() => (stylesheet({
     },
 })))
 
-let ArticlesPage: FC<ArticlesPageProps> = (props) => {
+let ArticleListPage: FC<ArticleListPageProps> = (props) => {
     let [articles, setArticles] = useState<IArticle[]>([])
-    let [total, setTotal] = useState<number>(0)
+    let [pages, setPages] = useState<boolean[]>([])
+    let router = useRouter()
+    let currentPage: number = parseInt(router.query['page'] as string)
+    let perPage = 2
     let styles = getStyles()
 
     useEffect(()=> {
         let getArticles = async ()=> {
-            let articles = await articleService.getAll()
-            let total = await articleService.getTotalCount()
+            let skip = (currentPage - 1) * perPage
+            let articles = await articleService.getSome(skip, perPage)
+
             setArticles(articles)
+        }
+
+        currentPage && getArticles()
+    }, [currentPage])
+
+    useEffect(()=> {
+        let getArticles = async ()=> {
+            let total = await articleService.getTotalCount()
+            let pages = []
+
+            for(let i=0; i<total; i+=perPage) {
+                pages.push(true)
+            }
+
+            setPages(pages)
         }
 
         getArticles()
@@ -49,9 +69,7 @@ let ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <div className={styles.wrap}>
-            <a href={`/article/new`}>
-                Add article
-            </a>
+            {currentPage}
             {articles.map((article)=> {
                 return (
                     <a
@@ -67,8 +85,18 @@ let ArticlesPage: FC<ArticlesPageProps> = (props) => {
                     </a>
                 )
             })}
+            {pages.map((val, i)=> {
+                return (
+                    <a
+                        key={i}
+                        href={`/article/p/${i + 1}`}
+                    >
+                        {i + 1}
+                    </a>
+                )
+            })}
         </div>
     )
 }
 
-export default observer(ArticlesPage)
+export default observer(ArticleListPage)

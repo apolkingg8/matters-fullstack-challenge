@@ -63,7 +63,26 @@ class ArticleService {
     }
 
     getSome = async (skip: number, take: number): Promise<IArticle[]> => {
-        return []
+        let query = `query get_article {
+            articles (skip: ${skip}, take: ${take}) {
+                id
+                title
+                content
+            }
+        }`
+        let fetched = await fetch(`${envStore.serverUrl}/graphql`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: query,
+            }),
+        })
+        let json = await fetched.json()
+
+        return json['data']['articles']
     }
 
     getById = async (id: string): Promise<IArticle> => {
@@ -87,6 +106,25 @@ class ArticleService {
         let json = await fetched.json()
 
         return json['data']['article']
+    }
+
+    getTotalCount = async (): Promise<number> => {
+        let query = `query get_articles_count {
+            articlesCount
+        }`
+        let fetched = await fetch(`${envStore.serverUrl}/graphql`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: query,
+            }),
+        })
+        let json = await fetched.json()
+
+        return json['data']['articlesCount']
     }
 }
 
