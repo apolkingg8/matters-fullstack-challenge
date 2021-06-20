@@ -6,6 +6,15 @@ import dbService from "../service/dbService";
 @Resolver()
 export default class ArticleResolver {
 
+    @Query(()=> (Article))
+    async article(
+        @Arg("id") id: string,
+    ) {
+        let article = await dbService.getArticleById(id)
+
+        return article
+    }
+
     @Query(()=> ([Article]))
     async articles(
         @Arg("skip", {nullable: true}) skip: number,

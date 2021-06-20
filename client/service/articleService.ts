@@ -35,7 +35,7 @@ class ArticleService {
         return json['data']['addArticle']
     }
 
-    delete = async (articleId: string)=> {
+    delete = async (id: string)=> {
 
     }
 
@@ -64,6 +64,29 @@ class ArticleService {
 
     getSome = async (skip: number, take: number): Promise<IArticle[]> => {
         return []
+    }
+
+    getById = async (id: string): Promise<IArticle> => {
+        let query = `query get_article {
+            article (id: "${id}") {
+                id
+                title
+                content
+            }
+        }`
+        let fetched = await fetch(`${envStore.serverUrl}/graphql`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: query,
+            }),
+        })
+        let json = await fetched.json()
+
+        return json['data']['article']
     }
 }
 
