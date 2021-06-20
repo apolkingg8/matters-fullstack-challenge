@@ -1,5 +1,6 @@
 import IArticle from "../../common/IArticle";
 import {v4} from "uuid";
+import envStore from "../store/envStore";
 
 class ArticleService {
 
@@ -16,7 +17,7 @@ class ArticleService {
                 content
             }
         }`
-        let fetched = await fetch("http://localhost:3718/graphql", {
+        let fetched = await fetch(`${envStore.serverUrl}/graphql`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +40,26 @@ class ArticleService {
     }
 
     getAll = async (): Promise<IArticle[]> => {
-        return []
+        let query = `query get_all_articles {
+            articles {
+                id
+                title
+                content
+            }
+        }`
+        let fetched = await fetch(`${envStore.serverUrl}/graphql`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: query,
+            }),
+        })
+        let json = await fetched.json()
+
+        return json['data']['articles']
     }
 
     getSome = async (skip: number, take: number): Promise<IArticle[]> => {
