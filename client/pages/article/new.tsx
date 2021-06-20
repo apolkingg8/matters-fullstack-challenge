@@ -67,6 +67,16 @@ let NewArticlePage: FC<NewArticlePageProps> = (props) => {
                     fullWidth={true}
                     onClick={async ()=> {
 
+                        if(title.length === 0) {
+                            viewStore.error = "Title can not be empty"
+                            return
+                        }
+
+                        if(content.length === 0) {
+                            viewStore.error = "Content can not be empty"
+                            return
+                        }
+
                         viewStore.isLoading = true
 
                         try {
