@@ -33,6 +33,7 @@ class DbService {
         this.ipfs = await IPFS.create()
         this.db = await OrbitDB.createInstance(this.ipfs)
         this.store = await this.db.keyvalue("articleStore")
+        await this.store.load()
     }
 }
 
