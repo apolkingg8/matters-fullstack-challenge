@@ -8,6 +8,7 @@ import styleStore from "../../../store/styleStore";
 import IArticle from "../../../../common/IArticle";
 import themeStore from "../../../store/themeStore";
 import viewStore from "../../../store/viewStore";
+import {Button} from "@material-ui/core";
 
 export interface ArticleListPageProps {
 
@@ -89,7 +90,9 @@ let ArticleListPage: FC<ArticleListPageProps> = (props) => {
     return (
         <div className={styles.wrap}>
             <a href={`/article/new`}>
-                Add article
+                <Button style={{width: 480}}>
+                    Add article
+                </Button>
             </a>
             {articles.map((article)=> {
                 return (

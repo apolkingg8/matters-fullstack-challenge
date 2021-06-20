@@ -38,7 +38,9 @@ let NewArticlePage: FC<NewArticlePageProps> = (props) => {
     return (
         <div className={styles.wrap}>
             <a href={`/article`}>
-                Article list
+                <Button style={{width: 480}}>
+                    Article list
+                </Button>
             </a>
             <div className={styles.titleWrap}>
                 <TextField
