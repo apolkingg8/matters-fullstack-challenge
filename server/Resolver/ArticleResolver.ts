@@ -29,7 +29,7 @@ export default class ArticleResolver {
         return await dbService.getArticleById(article.id)
     }
 
-    @Mutation(()=> ([Article]))
+    @Mutation(()=> (String))
     async removeArticle(
         @Arg("articleId") articleId: string
     ) {
