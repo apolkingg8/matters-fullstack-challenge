@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start"
   },
+  "resolutions": {
+    "csstype": "2.6.17"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "csx": "^10.0.2",

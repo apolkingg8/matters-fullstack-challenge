@@ -4,6 +4,8 @@ import {computedFn} from "mobx-utils";
 import {stylesheet} from "typestyle";
 import articleService from "../../service/articleService";
 import IArticle from "../../../common/IArticle";
+import themeStore from "../../store/themeStore";
+import styleStore from "../../store/styleStore";
 
 export interface ArticlesPageProps {
 
@@ -11,7 +13,22 @@ export interface ArticlesPageProps {
 
 let getStyles = computedFn(() => (stylesheet({
     wrap: {
-
+        ...styleStore.full,
+        ...styleStore.centerCol,
+    },
+    card: {
+        width: 480,
+        margin: 16,
+        padding: 16,
+        background: themeStore.theme.palette.background.paper,
+        borderRadius: 8,
+    },
+    title: {
+        ...themeStore.theme.typography.h4,
+        marginBottom: 8,
+    },
+    content: {
+        ...themeStore.theme.typography.body1,
     },
 })))
 
@@ -32,9 +49,14 @@ let ArticlesPage: FC<ArticlesPageProps> = (props) => {
         <div className={styles.wrap}>
             {articles.map((article)=> {
                 return (
-                    <div>
-                        {article.id} {article.title} {article.content}
-                    </div>
+                    <section className={styles.card}>
+                        <div className={styles.title}>
+                            {article.title}
+                        </div>
+                        <div className={styles.content}>
+                            {article.content}
+                        </div>
+                    </section>
                 )
             })}
         </div>
