@@ -7,10 +7,17 @@ import dbService from "../service/dbService";
 export default class ArticleResolver {
 
     @Query(()=> ([Article]))
-    async articles() {
-        let allArticles = dbService.getAllArticles()
+    async articles(
+        @Arg("skip", {nullable: true}) skip: number,
+        @Arg("take", {nullable: true}) take: number,
+    ) {
+        let allArticles = await dbService.getAllArticles()
 
-        return allArticles
+        if(typeof skip === "number" && typeof take === "number") {
+            return allArticles.slice(skip, skip + take)
+        } else {
+            return allArticles
+        }
     }
 
     @Mutation(()=> (Article))
@@ -18,15 +25,16 @@ export default class ArticleResolver {
         @Arg("article") article: ArticleInput
     ) {
         await dbService.upsertArticle(article)
-        let res = dbService.getArticleById(article.id)
 
-        return res
+        return await dbService.getArticleById(article.id)
     }
 
     @Mutation(()=> ([Article]))
     async removeArticle(
         @Arg("articleId") articleId: string
     ) {
-        return []
+        await dbService.removeArticle(articleId)
+
+        return articleId
     }
 }
