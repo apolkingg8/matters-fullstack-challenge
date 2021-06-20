@@ -100,6 +100,7 @@ let ArticleListPage: FC<ArticleListPageProps> = (props) => {
             <div className={styles.pageRow}>
                 {pages.map((val, i)=> {
                     let isActive = i === (currentPage - 1)
+
                     return (
                         <a
                             className={styles.page}
